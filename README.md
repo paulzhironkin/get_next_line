@@ -4,4 +4,4 @@ In this project I implemeted input read line helper function
 
 ### How to use:
 
-Just clone repe. Files can be used in C projects
+Just clone repo. Files can be used in C projects
