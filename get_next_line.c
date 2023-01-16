@@ -6,13 +6,15 @@
 /*   By: latahbah <latahbah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 12:16:57 by latahbah          #+#    #+#             */
-/*   Updated: 2021/10/27 19:00:49 by latahbah         ###   ########.fr       */
+/*   Updated: 2022/06/24 14:21:31 by latahbah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
 
-int	check_rmd(char *rmd)
+static int	check_rmd(char *rmd)
 {
 	int	i;
 
@@ -26,7 +28,7 @@ int	check_rmd(char *rmd)
 	return (0);
 }
 
-char	*no_nl(char **line, char **rmd, char **buf, char **tmp)
+static char	*no_nl(char **line, char **rmd, char **buf, char **tmp)
 {
 	*line = ft_substr(*rmd, 0, check_rmd(*rmd) + 1);
 	*tmp = *rmd;
@@ -44,7 +46,7 @@ char	*no_nl(char **line, char **rmd, char **buf, char **tmp)
 	return (*line);
 }
 
-char	*check_r(char **line, char **rmd, char **buf, int r)
+static char	*check_r(char **line, char **rmd, char **buf, int r)
 {
 	if (r == 0)
 	{
@@ -67,7 +69,7 @@ char	*check_r(char **line, char **rmd, char **buf, int r)
 	return (NULL);
 }
 
-void	make_join(char **buf, char **tmp, char **rmd, int r)
+static void	make_join(char **buf, char **tmp, char **rmd, int r)
 {
 	(*buf)[r] = '\0';
 	*tmp = *rmd;
